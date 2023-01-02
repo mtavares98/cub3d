@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:44:25 by mtavares          #+#    #+#             */
-/*   Updated: 2022/12/31 17:24:17 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:08:20 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ void	free_parse(t_parse *parse)
 		alloc().free_matrix((void **)parse->file);
 	if (parse->path_to_img)
 		alloc().free_matrix((void **)parse->path_to_img);
+}
+
+void	exit_parse(t_cub *data, int status, char *str, t_parse *parse)
+{
+	free_parse(parse);
+	exit_free(data, status, str);
 }
 
 static void	free_imgs(t_cub *data)

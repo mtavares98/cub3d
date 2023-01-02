@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 20:27:19 by mtavares          #+#    #+#             */
-/*   Updated: 2022/12/31 17:55:46 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:08:43 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ struct s_parse
 
 void	print_parse(t_cub *data, t_parse *parse);
 void	free_parse(t_parse *parse);
+void	exit_parse(t_cub *data, int status, char *str, t_parse *parse);
 void	load_imgs(t_cub *data, t_parse *parse);
 int		get_vars(t_cub *data, t_parse *parse);
 void	parse_file(t_cub *data, t_parse *parse);
