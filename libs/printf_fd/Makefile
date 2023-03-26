@@ -20,7 +20,7 @@ OBJS_DIR	=	objs
 
 NAME		=	libprintf_fd.a
 
-CC			=	clang
+CC			=	cc
 
 CFLAGS		=	-Wall -Wextra -Werror
 

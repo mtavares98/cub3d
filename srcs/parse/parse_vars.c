@@ -26,7 +26,7 @@ static int	fill_color(t_cub *data, char *s, t_parse *parse)
 		while (string().isdig(*s))
 			s++;
 		if (*s != ',')
-			exit_parse(data, 1, "Error with formating the file.cub", parse);
+			exit_parse(data, 1, "Error with formatting the file.cub", parse);
 		s++;
 		rgb[i] = string().atoi(s);
 		if (rgb[i] > 255 || rgb[i] < 0)
@@ -76,19 +76,19 @@ static int	find_args(t_parse *parse, char *s, char *compare)
 	return (1);
 }
 
-static int	choose_var(t_parse *parse, char *s)
+static int	choose_var(t_parse *parse, char *s, int num_vars)
 {
-	if (!find_args(parse, s, "NO"))
+	if (num_vars == 0 && !find_args(parse, s, "NO"))
 		return (0);
-	if (!find_args(parse, s, "SO"))
+	else if (num_vars == 1 && !find_args(parse, s, "SO"))
 		return (0);
-	if (!find_args(parse, s, "WE"))
+	else if (num_vars == 2 && !find_args(parse, s, "WE"))
 		return (0);
-	if (!find_args(parse, s, "EA"))
+	else if (num_vars == 3 && !find_args(parse, s, "EA"))
 		return (0);
-	if (!find_args(parse, s, "F"))
+	else if (num_vars == 4 && !find_args(parse, s, "F"))
 		return (0);
-	if (!find_args(parse, s, "C"))
+	else if (num_vars == 5 && !find_args(parse, s, "C"))
 		return (0);
 	return (1);
 }
@@ -107,12 +107,12 @@ int	get_vars(t_cub *data, t_parse *parse)
 	while (parse->file[++i] && num_vars != 6)
 	{
 		j = -1;
-		while (parse->file[i][++j] && num_vars != 6)
+		while (parse->file[i][++j])
 		{
 			if (!string().ft_isspace(parse->file[i][j]) && parse->file[i][j])
 			{
-				if (choose_var(parse, &parse->file[i][j]))
-					exit_parse(data, 1, "File Not Formated corretly", parse);
+				if (choose_var(parse, &parse->file[i][j], num_vars))
+					exit_parse(data, 1, "File Not Formatted correctly", parse);
 				num_vars++;
 				break ;
 			}

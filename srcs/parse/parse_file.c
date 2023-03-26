@@ -58,7 +58,7 @@ void	get_map(t_cub *data, t_parse *parse, int y)
 	if (!data->map.map)
 		exit_parse(data, 1, "Error malloc with map", parse);
 	i = -1;
-	while (parse->file[y])
+	while (parse->file[y] && valid_line(parse->file[y]))
 	{
 		data->map.map[++i] = string().strdup(parse->file[y]);
 		if (!data->map.map[i])
