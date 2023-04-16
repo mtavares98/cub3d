@@ -6,11 +6,13 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:44:25 by mtavares          #+#    #+#             */
-/*   Updated: 2023/01/02 16:08:20 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/04/16 20:16:20 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <parse.h>
+
+void	destroy_img(t_cub *game);
 
 void	free_parse(t_parse *parse)
 {
@@ -26,25 +28,12 @@ void	exit_parse(t_cub *data, int status, char *str, t_parse *parse)
 	exit_free(data, status, str);
 }
 
-static void	free_imgs(t_cub *data)
-{
-	int	i;
-
-	if (data->img.img)
-	{
-		i = -1;
-		while (data->img.img[++i])
-			mlx_destroy_image(data->win, data->img.img[i]);
-		alloc().free_array((void *)data->img.img);
-	}
-}
-
 static void	free_mlx(t_cub	*data)
 {
-	free_imgs(data);
-	if (data->win)
-		mlx_destroy_window(data->mlx, data->win);
-	if (data->win)
+	destroy_img(data);
+	if (data->mlx_win)
+		mlx_destroy_window(data->mlx, data->mlx_win);
+	if (data->mlx_win)
 	{
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);

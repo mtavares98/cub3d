@@ -11,7 +11,17 @@ SRCS		=	$(SRCS_DIR)/allocs/frees.c \
 				$(SRCS_DIR)/str/str.c \
 				$(SRCS_DIR)/str/utils1.c \
 				$(SRCS_DIR)/str/utils2.c \
-				$(SRCS_DIR)/main.c \
+				$(SRCS_DIR)/raycast/draw.c \
+				$(SRCS_DIR)/raycast/init_image.c \
+				$(SRCS_DIR)/raycast/init_vars.c \
+				$(SRCS_DIR)/raycast/ft_abs.c \
+				$(SRCS_DIR)/raycast/ft_exit.c \
+				$(SRCS_DIR)/raycast/key_press.c \
+				$(SRCS_DIR)/raycast/main.c \
+				$(SRCS_DIR)/raycast/mini_map.c \
+				$(SRCS_DIR)/raycast/raycast.c \
+				$(SRCS_DIR)/raycast/render.c \
+				$(SRCS_DIR)/raycast/utils.c \
 
 SRCS_DIR	=	srcs
 
@@ -31,7 +41,7 @@ CC			=	cc
 
 INC			=	-Iincludes -Ilibs/printf_fd/include -I/usr/include -Imlx_linux
 
-CFLAGS		=	-Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
 
 RM			=	rm -rf
 

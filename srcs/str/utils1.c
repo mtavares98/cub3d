@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:19:41 by mtavares          #+#    #+#             */
-/*   Updated: 2022/12/31 16:45:57 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:54:41 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,16 @@ int	ft_isspace(char c)
 
 char	*strtrim(char *s1, char *set)
 {
-	char	*str;
-	size_t	i;
-	size_t	start;
 	size_t	end;
 
-	start = -1;
-	end = ft_strlen(s1, -1) + 1;
 	if (!s1 || !set)
 		return (NULL);
-	while (s1[++start] && string().strchr(set, s1[start]))
-		;
-	while (s1[--end] && string().strchr(set, s1[end]))
-		;
-	str = alloc().calloc(end - start + 1);
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (start < end)
-		str[i++] = s1[start++];
-	str[i] = 0;
-	return (str);
+	while (*s1 && string().strchr(set, *s1))
+		s1++;
+	end = ft_strlen(s1, -1) - 1;
+	while (string().strchr(set, s1[end]))
+		end--;
+	return (string().substr(s1, 0, end + 1));
 }
 
 /*

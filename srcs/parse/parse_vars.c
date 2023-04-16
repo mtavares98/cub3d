@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 00:19:33 by mtavares          #+#    #+#             */
-/*   Updated: 2023/01/02 16:59:30 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:53:35 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,16 @@ static int	fill_color(t_cub *data, char *s, t_parse *parse)
 
 static int	fill_args(t_parse *parse, char *s, int path_i, int color_i)
 {
+	char	*str;
+
 	if (string().strncmp(s, "C", 1) && string().strncmp(s, "F", 1))
 	{
 		s += 2;
-		while (string().ft_isspace(*s))
-			s++;
-		parse->path_to_img[path_i] = string().strdup(s);
+		str = string().trim(s, " \n\t");
+		if (!str)
+			return (1);
+		parse->path_to_img[path_i] = string().strdup(str);
+		alloc().free_array(str);
 		if (!parse->path_to_img[path_i])
 			return (1);
 	}
