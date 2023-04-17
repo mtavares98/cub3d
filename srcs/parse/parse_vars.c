@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 00:19:33 by mtavares          #+#    #+#             */
-/*   Updated: 2023/04/16 21:53:35 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/04/17 13:32:57 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,19 +80,19 @@ static int	find_args(t_parse *parse, char *s, char *compare)
 	return (1);
 }
 
-static int	choose_var(t_parse *parse, char *s, int num_vars)
+static int	choose_var(t_parse *parse, char *s)
 {
-	if (num_vars == 0 && !find_args(parse, s, "NO"))
+	if (!find_args(parse, s, "NO"))
 		return (0);
-	else if (num_vars == 1 && !find_args(parse, s, "SO"))
+	else if (!find_args(parse, s, "SO"))
 		return (0);
-	else if (num_vars == 2 && !find_args(parse, s, "WE"))
+	else if (!find_args(parse, s, "WE"))
 		return (0);
-	else if (num_vars == 3 && !find_args(parse, s, "EA"))
+	else if (!find_args(parse, s, "EA"))
 		return (0);
-	else if (num_vars == 4 && !find_args(parse, s, "F"))
+	else if (!find_args(parse, s, "F"))
 		return (0);
-	else if (num_vars == 5 && !find_args(parse, s, "C"))
+	else if (!find_args(parse, s, "C"))
 		return (0);
 	return (1);
 }
@@ -115,7 +115,7 @@ int	get_vars(t_cub *data, t_parse *parse)
 		{
 			if (!string().ft_isspace(parse->file[i][j]) && parse->file[i][j])
 			{
-				if (choose_var(parse, &parse->file[i][j], num_vars))
+				if (choose_var(parse, &parse->file[i][j]))
 					exit_parse(data, 1, "File Not Formatted correctly", parse);
 				num_vars++;
 				break ;

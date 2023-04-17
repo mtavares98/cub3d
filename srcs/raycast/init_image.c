@@ -18,26 +18,34 @@ void	check_img(t_img *img)
 		exit_free(this_cub(), 1, "Error allocating imgs");
 }
 
+t_img	*texture_init(void *mlx, char *path)
+{
+	int		img_width;
+	int		img_height;
+	t_img	*img;
+
+	img = mlx_xpm_file_to_image(mlx, path, &img_width, &img_height);
+	if (!img)
+		exit_free(this_cub(), 1, "Error loading texture");
+	return (img);
+}
+
 void	init_textutes(t_cub *cub, char **path)
 {
-	int	img_width;
-	int	img_height;
+	int	i;
 
-	cub->img.no_tex = mlx_xpm_file_to_image(cub->mlx, path[0], \
-		&img_width, &img_height);
-	check_img(cub->img.no_tex);
-	cub->img.so_tex = mlx_xpm_file_to_image(cub->mlx, path[1], \
-		&img_width, &img_height);
-	check_img(cub->img.so_tex);
-	cub->img.we_tex = mlx_xpm_file_to_image(cub->mlx, path[2], \
-		&img_width, &img_height);
-	check_img(cub->img.we_tex);
-	cub->img.ea_tex = mlx_xpm_file_to_image(cub->mlx, path[3], \
-		&img_width, &img_height);
-	check_img(cub->img.ea_tex);
-	cub->img.chess = mlx_xpm_file_to_image(cub->mlx, "textures/chess.xpm", \
-		&img_width, &img_height);
-	check_img(cub->img.chess);
+	i = -1;
+	while (path[++i])
+	{
+		if (cub->img.order[i] == 'N')
+			cub->img.no_tex = texture_init(cub->mlx, path[i]);
+		else if (cub->img.order[i] == 'S')
+			cub->img.so_tex = texture_init(cub->mlx, path[i]);
+		else if (cub->img.order[i] == 'W')
+			cub->img.we_tex = texture_init(cub->mlx, path[i]);
+		else if (cub->img.order[i] == 'E')
+			cub->img.ea_tex = texture_init(cub->mlx, path[i]);
+	}
 }
 
 void	init_img(t_cub *cub)

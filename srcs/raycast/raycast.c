@@ -48,15 +48,14 @@ void raycast(t_cub *cub)
 	mlx_put_image_to_window(cub->mlx, cub->mlx_win, cub->screen, 0, 0);
 }
 
-int check_hit(t_cub *cub, float ray_x, float ray_y)
+int	check_hit(t_cub *cub, float ray_x, float ray_y)
 {
-	int	vertical;
+	int		vertical;
 	float	a;
 	float	b;
 
 	a = ray_x - 1;
 	b = ray_x + 1;
-
 	vertical = 0;
 	if (cub->map.map[(int)(ray_y / 16)][(int)(ray_x / 16)] == '1')
 	{
@@ -129,7 +128,7 @@ void	draw_texture(int x, int y, float len, t_cub *cub, float WallX, float ray_x,
 	else
 	{
 		if (ray_y < cub->py)
-			draw_texture2(x, y, len, cub, WallX, cub->img.no_tex, ray_x);
+			draw_texture2(x, y, len, cub, WallX, cub->img.no_tex, ray_x);	// int	img_width;
 		else
 			draw_texture2(x, y, len, cub, WallX, cub->img.so_tex, ray_x);
 	}

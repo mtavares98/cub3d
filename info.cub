@@ -1,16 +1,15 @@
-NO ./textures/stone.xpm
-
 
 
 SO ./textures/brick_with_flag.xpm
 
-
-
-WE ./textures/stone_musgo.xpm
+NO ./textures/stone.xpm
 
 
 
 EA ./textures/wood.xpm
+
+WE ./textures/stone_musgo.xpm
+
 
 
 
@@ -22,8 +21,8 @@ C 0,150,255
 
 
 
-        1111111111111111111111111
-        1N00000000110000000000001
+       11111111111111111111111111
+        1000000000110000000000E01
         1011000001110000000000001
         1001000000000000000000001
 111111111011000001110000000000001
