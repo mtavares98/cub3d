@@ -20,11 +20,11 @@ void	check_img(t_img *img)
 
 t_img	*texture_init(void *mlx, char *path)
 {
-	int		img_width;
-	int		img_height;
+	int		width;
+	int		height;
 	t_img	*img;
 
-	img = mlx_xpm_file_to_image(mlx, path, &img_width, &img_height);
+	img = mlx_xpm_file_to_image(mlx, path, &width, &height);
 	if (!img)
 		exit_free(this_cub(), 1, "Error loading texture");
 	return (img);
@@ -46,6 +46,7 @@ void	init_textutes(t_cub *cub, char **path)
 		else if (cub->img.order[i] == 'E')
 			cub->img.ea_tex = texture_init(cub->mlx, path[i]);
 	}
+	cub->img.chess = texture_init(cub->mlx, "textures/chess.xpm");
 }
 
 void	init_img(t_cub *cub)

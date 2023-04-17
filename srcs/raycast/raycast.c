@@ -128,7 +128,7 @@ void	draw_texture(int x, int y, float len, t_cub *cub, float WallX, float ray_x,
 	else
 	{
 		if (ray_y < cub->py)
-			draw_texture2(x, y, len, cub, WallX, cub->img.no_tex, ray_x);	// int	img_width;
+			draw_texture2(x, y, len, cub, WallX, cub->img.chess, ray_x);	// int	img_width;
 		else
 			draw_texture2(x, y, len, cub, WallX, cub->img.so_tex, ray_x);
 	}

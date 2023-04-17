@@ -138,6 +138,7 @@ void	draw_vertical_line(float x, float y, float len, t_cub *cub, int color)
 	{
 		if (y + i < cub->height && x < cub->width && y + i >= 0 && x >= 0)
 			my_mlx_pixel_put(cub, x, y + i, color);
+		//color++;
 		i++;
 	}
 }

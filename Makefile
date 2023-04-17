@@ -74,6 +74,11 @@ fclean:		clean
 		$(RM) $(NAME)
 		make fclean -C libs/printf_fd
 
+a:
+	make re
+	make clean
+	./cub3d basic.cub
+
 re:			fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re a
