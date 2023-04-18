@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 19:12:57 by mtavares          #+#    #+#             */
-/*   Updated: 2023/04/16 21:24:38 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:24:21 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static int	check_invalid_char(t_cub *data)
 				data->num_player++;
 			}
 		}
+			data->map.width = (x * 16) * (data->map.width / 16 < x) + (data->map.width / 16 >= x) * (data->map.width);
 	}
-	data->map.width = x * 16;
 	data->map.height = y * 16;
 	return (data->num_player != 1);
 }

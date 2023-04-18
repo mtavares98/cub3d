@@ -19,7 +19,7 @@ void	draw_mini(t_cub *cub, int x, int y, int color)
 	if (y < 128 && x < 128 && (y >= 0 && x >= 0))
 	{
 		dst = cub->game.mini->data + (y * cub->game.mini->size_line + x * (cub->game.mini->bpp / 8));
-		*(unsigned int*)dst = color;
+		*(unsigned int *)dst = color;
 	}
 }
 
@@ -53,7 +53,7 @@ void	print_map(t_cub *cub)
 		}
 		i++;
 	}
-	mlx_put_image_to_window(cub->mlx, cub->mlx_win, cub->game.mini, 10, 10);	
+	mlx_put_image_to_window(cub->mlx, cub->mlx_win, cub->game.mini, 10, 10);
 	//mlx_put_image_to_window(cub->mlx, cub->mlx_win, cub->game.mmp, cub->px, cub->py);
 }
 
@@ -76,7 +76,7 @@ void	init_mini_map(t_cub *cub)
 	while (cub->map.map[y])
 	{
 		x = 0;
-		while (cub->map.map[y][x])
+		while (cub->map.map[y][x] && cub->map.map[y][x] != '\n')
 		{
 			if (cub->map.map[y][x] == '1')
 				draw_square(cub, x * 16, y * 16, 0x000000FF);
