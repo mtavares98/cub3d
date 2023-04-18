@@ -80,9 +80,7 @@ void	init_mini_map(t_cub *cub)
 		{
 			if (cub->map.map[y][x] == '1')
 				draw_square(cub, x * 16, y * 16, 0x000000FF);
-			else if (cub->map.map[y][x] == '0' || cub->map.map[y][x] == 'N'
-				|| cub->map.map[y][x] == 'S' || cub->map.map[y][x] == 'E'
-				|| cub->map.map[y][x] == 'W')
+			else if (cub->map.map[y][x] == '0')
 				draw_square(cub, x * 16, y * 16, 0x00FFFFFF);
 			else if (cub->map.map[y][x] == ' ')
 				draw_square(cub, x * 16, y * 16, 0x00000000);
