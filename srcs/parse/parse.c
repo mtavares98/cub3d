@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:16:51 by mtavares          #+#    #+#             */
-/*   Updated: 2023/04/17 13:27:41 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:53:11 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	**read_file(char **map, int fd, int counter)
 	return (map);
 }
 
-int	open_file(t_cub *data, char *name)
+static int	open_file(t_cub *data, char *name)
 {
 	int	fd;
 

@@ -6,11 +6,11 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 19:12:57 by mtavares          #+#    #+#             */
-/*   Updated: 2023/04/18 17:28:04 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:48:03 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
+#include <parse.h>
 
 int	orientation_player(char c)
 {
@@ -63,5 +63,6 @@ int	check_map(t_cub *data, char **path)
 		alloc().free_matrix((void **)path);
 		exit_free(data, 1, "The map must valid chars and one player position");
 	}
+	verify_paths(data, path);
 	return (0);
 }

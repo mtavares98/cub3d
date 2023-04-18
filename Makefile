@@ -5,6 +5,7 @@ SRCS		=	$(SRCS_DIR)/allocs/frees.c \
 				$(SRCS_DIR)/check_map/check_map.c \
 				$(SRCS_DIR)/gnl/get_next_line.c \
 				$(SRCS_DIR)/gnl/get_next_line_utils.c \
+				$(SRCS_DIR)/parse/algorithm.c \
 				$(SRCS_DIR)/parse/parse.c \
 				$(SRCS_DIR)/parse/parse_file.c \
 				$(SRCS_DIR)/parse/parse_vars.c \
@@ -41,7 +42,7 @@ CC			=	cc
 
 INC			=	-Iincludes -Ilibs/printf_fd/include -I/usr/include -Imlx_linux
 
-CFLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror -g #-fsanitize=address
 
 RM			=	rm -rf
 

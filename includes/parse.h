@@ -6,7 +6,7 @@
 /*   By: mtavares <mtavares@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 20:27:19 by mtavares          #+#    #+#             */
-/*   Updated: 2023/04/17 13:31:13 by mtavares         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:53:23 by mtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ struct s_parse
 	int		num_vars;
 };
 
-int		open_file(t_cub *data, char *name);
 void	print_parse(t_cub *data, t_parse *parse);
 void	free_parse(t_parse *parse);
 void	exit_parse(t_cub *data, int status, char *str, t_parse *parse);
